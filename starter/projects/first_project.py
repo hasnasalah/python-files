@@ -2,17 +2,18 @@
 def load_contacts():
     dictionary = {}
     try:
+        # getting the file if not existed create one
         file = open("contacts.txt", "r")
         for line in file:
             name, phone = line.strip().split(",", 1)
-
+            #load data into a dic if a name is already in dict just add another number otherwise create a new value and key
             if name in dictionary:
                 dictionary[name].append(phone)
             else:
                 dictionary[name] = [phone]
 
         file.close()
-
+   
     except FileNotFoundError:
         print("file not found")
         
@@ -32,7 +33,25 @@ def save_contacts(dictionary):
 # function that will add the contact
 def add_contact(dictionary):
     name = input("Please enter the name: ")
-    phone = input("Please enter the phone number: ")
+    #check if contact name existed:
+    if name in dictionary:
+       answer = input(
+            "This contact already exists. "
+            "Add another phone number? (y/n): "
+        ).lower()
+       if answer != "y":
+            print("Contact was not changed.")
+            return
+    #validate the phone number
+    while True:
+        try:
+            phone = input("Please enter a 10-digit phone number: ")
+            if len(phone) != 10 or not phone.isdigit():
+                raise ValueError("Phone number must be valid (10 digits)!!")
+            break
+        except ValueError as error:
+            print(error)
+
     if name in dictionary:
         dictionary[name].append(phone)
     else:
@@ -42,22 +61,46 @@ def add_contact(dictionary):
 
 #function to display the contacts
 def display_contacts(dictionary):
-     print(" All Contacts: ")
-     if not dictionary:
-         print("No Contacts Found")
-     else:   
+    print("\n" + "=" * 32)
+    print("         CONTACT DETAILS")
+    print("=" * 32)
+    if not dictionary:
+        print("No Contacts Found")
+    else:   
         for name, phones in sorted(dictionary.items()):
-          print(name + ":")
-        for phone in phones:
-            print("  -", phone)
+          print(f"\nName: {name}:")
+          for phone in phones:
+            print(f"  -{phone}")
+          print("-" * 32)
 
 #function to delete a contact
 def delete_contact(dictionary):
      search=input("Enter the contact name you want to delete:")
      if search in dictionary:
         del dictionary[search]
-     save_contacts(dictionary)
-     print("Contact deleted successfully!")
+        save_contacts(dictionary)
+        print("Contact deleted successfully!")
+     else:
+         print("Contact was not found!")
+
+#function to search for a contact
+def seach_contact(dictionary):
+    search = input("Enter the contact name you want to search for: ")
+
+    if search in dictionary:
+        print("\n" + "=" * 32)
+        print("         CONTACT DETAILS")
+        print("=" * 32)
+
+        print("Name:", search)
+
+        for phone in dictionary[search]:
+            print("  -", phone)
+
+        print("-" * 32)
+
+    else:
+        print("Contact was not found!")
         
         
 while True:
@@ -68,10 +111,7 @@ while True:
   elif choice=="2":
    display_contacts(contac_book)
   elif choice=="3":
-    search=input("Enter the name your searching for....")
-    for name,contact in contac_book.items():
-        if search==name:
-            print(name,": ",contact)
+    seach_contact(contac_book)
   elif choice=="4":
    delete_contact(contac_book)
   elif choice=="5":
