@@ -38,27 +38,27 @@ File handling (open(), r,w)
 ## Screenshots and Test Results
 
 ### Add New Contact:
-![Adding a contact](screenshots\addContact.png)
+![Adding a contact](screenshots/addContact.png)
 
 ### validate Contact:
 
-![Add new Number to An existing Contact](screenshots\multipleAndValidateDigits.png)
+![Add new Number to An existing Contact](screenshots/multipleAndValidateDigits.png)
 
 ### Delete A Contact:
 
-![Delete A contact](screenshots\delete.png)
+![Delete A contact](screenshots/delete.png)
 
 ### Display All Contacts:
 
-![Display Contacts](screenshots\display.png)
+![Display Contacts](screenshots/display.png)
 
 ### Search For A contact:
 
-![Search For A contact](screenshots\search.png)
+![Search For A contact](screenshots/search.png)
 
 ### Validate Search:
 
-![Error Search](screenshots\errorSearch.png)
+![Error Search](screenshots/errorSearch.png)
 
 ### Validate Phone Number:
 ![Validate 10 digite and adding multiple phone numbers to same name](projects\screenshots\multipleAndValidateDigits.png)
