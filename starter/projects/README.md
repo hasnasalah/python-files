@@ -35,6 +35,14 @@ Exception handling (try/except)
 File handling (open(), r,w)
 
 
+## Program Structure and Challenges
+
+I organized my Contact Book program into separate functions to add, display, search, and delete contacts. I also created functions to load contacts from a text file and save changes so the data is available when the program runs again.
+I used a dictionary to store contact names and lists to support multiple phone numbers. The main program uses a  while loop to display the menu until the user chooses to exit.
+One challenge I faced was figuring out how to store multiple phone numbers for the same person. I solved this by using a dictionary with a list of phone numbers for each contact.I also faced some challenges when working on loading data from files. I had to figure out how to separate the data using commas and handle line breaks correctly.
+
+
+
 ## Screenshots and Test Results
 
 ### Add New Contact:
@@ -62,4 +70,5 @@ File handling (open(), r,w)
 
 ### Validate Phone Number:
 ![Validate 10 digite and adding multiple phone numbers to same name](projects\screenshots\multipleAndValidateDigits.png)
+
 
