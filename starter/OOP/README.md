@@ -1,1 +1,1 @@
-![OUTPUT](/projects//screenshots/Screenshot%202026-10-29%20234500.png)
+![OUTPUT](Screenshot%202026-10-29%20234500.png)
